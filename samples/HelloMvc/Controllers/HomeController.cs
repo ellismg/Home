@@ -5,17 +5,16 @@ namespace MvcSample.Web
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string name)
         {
-            return View(CreateUser());
+            return View(CreateUser(name ?? "world"));
         }
 
-        public User CreateUser()
+        public User CreateUser(string name)
         {
             User user = new User()
             {
-                Name = "My name",
-                Address = "My address"
+                Name = name,
             };
 
             return user;
